@@ -4,9 +4,15 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {},
+    state: {
+        isCollapse: false
+    },
     getters: {},
-    mutations: {},
+    mutations: {
+        CollapseMenu(state) {
+            state.isCollapse = !state.isCollapse;
+        }
+    },
     actions: {},
     modules: {}
 });

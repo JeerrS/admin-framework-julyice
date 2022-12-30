@@ -1,5 +1,8 @@
 <template>
-    <el-menu style="height: 100vh">
+    <el-menu
+        style=" height: calc(100vh - 60px)"
+        :collapse="isCollapse"
+    >
         <el-menu-item
             v-for="item in menuData"
             :key="item.name"
@@ -33,6 +36,11 @@ export default {
             menuData
         };
     },
+    computed: {
+        isCollapse() {
+            return this.$store.state.isCollapse;
+        }
+    },
     methods: {
         handleClickMenuItem(menu) {
             if (this.$route.path !== menu.path &&
@@ -44,6 +52,17 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.el-menu-item:hover {
+    background-color: #333;
+    color: white;
+    > i {
+        color: white;
+    }
+}
+.el-tooltip:hover {
+    > i {
+        color: white;
+    }
+}
 </style>

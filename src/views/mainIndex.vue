@@ -1,10 +1,15 @@
 <template>
     <el-container>
-        <el-aside width="200px">
+        <el-aside :width="isCollapse ? '65px' : '200px'">
+            <div class="header-title">
+                {{ isCollapse ? '' : '后台管理系统' }}
+            </div>
             <common-aside></common-aside>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
+            <el-header>
+                <common-header></common-header>
+            </el-header>
             <el-main>Main</el-main>
         </el-container>
     </el-container>
@@ -12,15 +17,32 @@
 
 <script>
 import CommonAside from '@/components/CommonAside.vue';
+import CommonHeader from '@/components/CommonHeader.vue';
 
 export default {
     name: 'mainIndex',
     components: {
+        CommonHeader,
         CommonAside
-    }
+    },
+    computed: {
+        isCollapse() {
+            return this.$store.state.isCollapse;
+        }
+    },
 };
 </script>
 
 <style lang="scss" scoped>
-
+.header-title {
+    height: 60px;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+}
+.el-header {
+    padding: 0;
+}
 </style>

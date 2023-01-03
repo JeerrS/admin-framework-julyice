@@ -10,7 +10,9 @@
             <el-header>
                 <common-header></common-header>
             </el-header>
-            <el-main>Main</el-main>
+            <el-main>
+                <home></home>
+            </el-main>
         </el-container>
     </el-container>
 </template>
@@ -18,10 +20,12 @@
 <script>
 import CommonAside from '@/components/CommonAside.vue';
 import CommonHeader from '@/components/CommonHeader.vue';
+import Home from '@/views/home/home.vue';
 
 export default {
     name: 'mainIndex',
     components: {
+        Home,
         CommonHeader,
         CommonAside
     },
